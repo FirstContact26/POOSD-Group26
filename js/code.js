@@ -108,6 +108,58 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+function doRegister()
+{
+	firstName = document.getElementById("firstName").value;
+	lastName = document.getElementById("lastName").value;
+	let newUsername = document.getElementById("regUsername").value;
+	let newPassword = document.getElementById("regPassword").value;
+	
+	document.getElementById("registerResult").innerHTML = "";
+
+	let tmp = {firstName:firstName,lastName:lastName,login:newUsername,password:newPassword};
+	
+	let jsonPayload = JSON.stringify( tmp );
+
+	let url = urlBase + '/Register.' + extension;
+	
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			
+			if (this.readyState != 4) {
+                return;
+            }
+
+            if (this.status == 409) {
+                document.getElementById("registerResult").innerHTML = "User already exists";
+                return;
+            }
+
+            if (this.status == 200) {
+
+                let jsonObject = JSON.parse(xhr.responseText);
+                userId = jsonObject.id;
+                document.getElementById("registerResult").innerHTML = "User added";
+                firstName = jsonObject.firstName;
+                lastName = jsonObject.lastName;
+                saveCookie();
+            }
+			
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("registerResult").innerHTML = err.message;
+	}
+	
+}
+
 function addColor()
 {
 	let newColor = document.getElementById("colorText").value;
