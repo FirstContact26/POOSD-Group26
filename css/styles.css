@@ -40,13 +40,11 @@ body
     background-color: #b2b2b2;
 }
 /*------------- Julian  --------------*/
-#form
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+#form {
+    text-align: center;
+}
+#form input, #form button {
+    margin-bottom: 10px;
 }
 
 .textEntries 
