@@ -40,15 +40,6 @@ body
     background-color: #b2b2b2;
 }
 /*------------- Julian  --------------*/
-#form {
-    text-align: center;
-    display: block;
-}
-#form input, #form button {
-    margin-bottom: 10px;
-    align-items: center;
-    display: block;
-}
 
 .textEntries 
 {
