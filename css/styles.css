@@ -42,12 +42,12 @@ body
 /*------------- Julian  --------------*/
 #form {
     text-align: center;
-    display: inline;
+    display: block;
 }
 #form input, #form button {
     margin-bottom: 10px;
     align-items: center;
-    display: inline;
+    display: block;
 }
 
 .textEntries 
