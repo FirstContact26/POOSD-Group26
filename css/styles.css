@@ -46,6 +46,7 @@ body
 }
 #form input, #form button {
     margin-bottom: 10px;
+    align-items: center;
     display: inline;
 }
 
