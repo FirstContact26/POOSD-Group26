@@ -1,4 +1,4 @@
 # First Contact
-*a web contact manager* 
+*a spaced themed web contact manager* 
 
 Check out our [website](http://poosd26.xyz).
