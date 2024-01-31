@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Welcome User!</title>
-	<script type="text/javascript" src="js/code.js"></script>
+	<!--<script type="text/javascript" src="js/code.js"></script>-->
     <link href="css/styles.css" rel="stylesheet">	
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	
@@ -17,41 +17,68 @@
 
 <h1 id="title">Welcome User!</h1>
 
-<div id="loggedInDiv">
-	<span id="userName"></span><br />
-	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
-</div>
 
-<div id="accessUIDiv">
-		<br />
 
-		<input type="text" id="searchText" class=mySearchBar placeholder="Contact To Search For"/>
-		<button type="button" id="searchContactButton" class="mySearchButton" onclick="searchcontact();"> Search contact </button><br />
+<div id="contacts-container">
+	<div class="left-divider">
+		<input type="text" id="mySearchBar" placeholder="Contact To Search For"/>
 		<span id="contactSearchResult"></span>
-		<p id="contactList">
-		</p><br /><br />
 
-		<input type="text" id="contactText" placeholder="contact To Add">
+		<div class="outer-wrapper">
+			<div class="table-wrapper">
+				<table class="center">
+					<tr>
+						<th>First&nbspName</th>
+						<th>Last&nbspName</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th></th>
+					</tr>
+					<tr>
+						<th>Julian</th>
+						<th>Collazo</th>
+						<th>email@gmail.com</th>
+						<th>800-588-2300 empire</th>
+						<th></th>
+					</tr>
+					
+					
+					
+					
+					
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="right-divider">
+
+		
+		<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+
+		<input type="text" id="contactItem" name="firstName" placeholder="First Name" required>
+		<br>
+
+		<input type="text" id="contactItem" name="lastName" placeholder="Last Name" required>
+		<br>
+
+		<input type="tel" id="contactItem" name="phoneNumber" placeholder="XXX-XXXX-XXXX" required>
+		<br>
+		
+		<input type="email" id="contactItem" name="email" placeholder="name@email.com" required>
+		<br>
+
 		<button onclick="hideSearchContactButton()" type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add contact </button><br />
 		<span id="contactAddResult"></span>
-</div>
 
-<div id="form">
-
-	<input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-	<br>
-
-	<input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-	<br>
-
-	<input type="tel" id="phoneNumber" name="phoneNumber" placeholder="XXX-XXXX-XXXX" required>
-	<br>
+	</div>
 	
-	<input type="email" id="email" name="email" placeholder="name@email.com" required>
-	<br>
 
-	<button type="button">Add Contact</button>
 </div>
+
+
+
 
 </body>
 </html>
+
