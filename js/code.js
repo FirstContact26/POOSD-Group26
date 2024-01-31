@@ -160,6 +160,24 @@ function doRegister()
 	
 }
 
+function swapLogin() {
+	let loginInputs = document.getElementById("login-inputs");
+	loginInputs.style.display = "none";
+
+	document.getElementById("register-inputs").style.display = "inline-block";
+	document.getElementById("loginTitle").innerHTML = "REGISTER";
+
+}
+
+function swapRegister() {
+	let regInputs = document.getElementById("register-inputs");
+	regInputs.style.display = "none";
+
+	document.getElementById("login-inputs").style.display = "inline-block";
+	document.getElementById("loginTitle").innerHTML = "LOGIN";
+
+}
+
 function addColor()
 {
 	let newColor = document.getElementById("colorText").value;
