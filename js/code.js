@@ -124,7 +124,7 @@ function doRegister()
 	document.getElementById("registerResult").innerHTML = "";
 
 	//Checking for blank input fields
-	if(firstName == "" || lastName == "" || newUsername == "" || newUsername == ""){
+	if(firstName == "" || lastName == "" || newUsername == "" || newPassword == ""){
 		document.getElementById("registerResult").innerHTML = "*Please fill in the blank fields";
 		return
 	}
