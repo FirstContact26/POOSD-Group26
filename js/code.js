@@ -14,7 +14,13 @@ function doLogin()
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
-	
+
+	//Checking for blank Username or Password
+	if(login == "" || password == ""){
+		document.getElementById("loginResult").innerHTML = "*Please fill in the blank fields";
+		return;
+	}
+
 	document.getElementById("loginResult").innerHTML = "";
 
 	let tmp = {login:login,password:password};
@@ -37,7 +43,7 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "*User/Password combination incorrect";
 					return;
 				}
 		
@@ -117,6 +123,12 @@ function doRegister()
 	
 	document.getElementById("registerResult").innerHTML = "";
 
+	//Checking for blank input fields
+	if(firstName == "" || lastName == "" || newUsername == "" || newUsername == ""){
+		document.getElementById("registerResult").innerHTML = "*Please fill in the blank fields";
+		return
+	}
+
 	let tmp = {firstName:firstName,lastName:lastName,login:newUsername,password:newPassword};
 	
 	let jsonPayload = JSON.stringify( tmp );
@@ -136,7 +148,7 @@ function doRegister()
             }
 
             if (this.status == 409) {
-                document.getElementById("registerResult").innerHTML = "User already exists";
+                document.getElementById("registerResult").innerHTML = "*User already exists";
                 return;
             }
 
@@ -144,7 +156,7 @@ function doRegister()
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
-                document.getElementById("registerResult").innerHTML = "User added";
+                document.getElementById("registerResult").innerHTML = "*User added";
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 saveCookie();
@@ -164,7 +176,11 @@ function swapLogin() {
 	let loginInputs = document.getElementById("login-inputs");
 	loginInputs.style.display = "none";
 
-	document.getElementById("register-inputs").style.display = "inline-block";
+	document.getElementById("loginResult").innerHTML = "";
+	document.getElementById("loginName").value = "";
+	document.getElementById("loginPassword").value = "";
+
+	document.getElementById("register-inputs").style.display = "flex";
 	document.getElementById("loginTitle").innerHTML = "REGISTER";
 
 }
@@ -173,7 +189,13 @@ function swapRegister() {
 	let regInputs = document.getElementById("register-inputs");
 	regInputs.style.display = "none";
 
-	document.getElementById("login-inputs").style.display = "inline-block";
+	document.getElementById("registerResult").innerHTML = "";
+	document.getElementById("firstName").value = "";
+	document.getElementById("lastName").value = "";
+	document.getElementById("regUsername").value = "";
+	document.getElementById("regPassword").value = "";
+
+	document.getElementById("login-inputs").style.display = "flex";
 	document.getElementById("loginTitle").innerHTML = "LOGIN";
 
 }
