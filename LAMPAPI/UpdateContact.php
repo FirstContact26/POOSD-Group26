@@ -24,7 +24,7 @@
             $userId = $row_user['ID'];
 
             $stmt_update = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName = ?, Phone = ?, Email = ? WHERE UserID = ? AND ID = ?");
-            $stmt_update->bind_param("ssssis", $firstName, $lastName, $phone, $email, $userId, $contactId);
+            $stmt_update->bind_param("ssssii", $firstName, $lastName, $phone, $email, $userId, $contactId);
             $stmt_update->execute();
 
             error_log("SQL query executed: " . $stmt_update->error);

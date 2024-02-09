@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>First Contact</title>
-	<script type="text/javascript" src="js/md5.js"></script>
-	<script type="text/javascript" src="js/code.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
-    <link href="css/login.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <title>First Contact</title>
+        <link href="css/homepage.css" rel="stylesheet">	
+    </head>
 
-<h1 id="title">FIRST CONTACT</h1>
+    <body>
+        <ul class="navbar">
+            <li style="float:right">
+                <a href ="login.html">Login/Signup</a>
+            </li>
+        </ul>
+        <div id="titleDiv">
+            <h1 id="firstT" class="title">JOURNEY INTO DEEP SPACE...</h1>
+            <h1 id="secondT" class="title"><a id="gitlink" href="https://github.com/FirstContact26/POOSD-Group26">AND MAKE FIRST CONTACT</a></h1>
+        </div>
+    </body>
 
-<div id="loginDiv">
-	<span id="loginTitle">LOGIN</span>
-	<div id="register-inputs">
-		<input type="text-field" id="firstName" placeholder="First Name" />
-		<input type="text-field" id="lastName" placeholder="Last Name"/>
-		<input type="text-field" id="regUsername" placeholder="Username" />
-		<input type="text-field" id="regPassword" placeholder="Password"/>
-		<span id="registerResult"></span>
-		<button type="button" id="registerButton" class="buttons" onclick="doRegister();">SIGNUP</button>
-		<button type="button" id="signup-login" onclick="swapRegister();">Login here</button>
-	</div>
-	<div id="login-inputs">
-		<input type="text-field" id="loginName" placeholder="Username"/>
-		<input type="password" id="loginPassword" placeholder="Password"/>
-		<span id="loginResult"></span>
-		<button type="button" id="loginButton" class="buttons" onclick="doLogin();">LAUNCH</button>
-		<button type="button" id="signup-login" onclick="swapLogin();">Sign up here</button>
-	</div>
-</div>
-
-</body>
 </html>

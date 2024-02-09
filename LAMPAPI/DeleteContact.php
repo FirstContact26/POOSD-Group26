@@ -1,8 +1,8 @@
 <?php
     $inData = getRequestInfo();
 
-    $login = $inData["login"]; // Assuming login is used to identify the user
-    $contactId = $inData["contactId"]; // Assuming contactId is used to identify the contact
+    $login = $inData["login"]; 
+    $contactId = $inData["contactId"]; 
 
     $conn = new mysqli("localhost", "DBUser", "password", "COP4331");
     if ($conn->connect_error) 
@@ -11,7 +11,7 @@
     } 
     else
     {
-        // Fetching the user ID based on the login
+        
         $stmt_user = $conn->prepare("SELECT ID FROM Users WHERE Login = ?");
         $stmt_user->bind_param("s", $login);
         $stmt_user->execute();
@@ -59,3 +59,4 @@
         sendResultInfoAsJson($retValue);
     }
 ?>
+

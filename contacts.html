@@ -7,56 +7,103 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="css/contacts.css" rel="stylesheet">
     <script type="text/javascript" src="js/contactsCode.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             readCookie();
+            loadContacts();
         }, false);
     </script>
+    
 </head>
 
 <body>
 
-    <h1 id="title">Welcome User!</h1>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            loadContacts();
+        }, false);
 
-    <div id="contacts-container">
+    </script>
+
+    <ul class="navbar">
+        <li>
+            <a href ="javascript:void(0)" class="active">CONTACTS</a>
+        </li>
+        <li>
+            <a href ="aboutus.html">ABOUT US</a>
+        </li>
+        <li style="float:right">
+            <a href ="login.html">LOGOUT</a>
+        </li>
+    </ul>
+
+    <h1 id="contacts-title"></h1>
+
+    
+
+    <div class="contacts-container">
         <!-- Left Divider -->
         <div class="left-divider">
-            <input type="text" id="mySearchBar" placeholder="Contact To Search For" />
+
+            <input type="text" id="mySearchBar" name="search" onkeyup="searchContacts()" placeholder="Contact To Search For" />
+            
             <span id="contactSearchResult"></span>
 
             <div class="outer-wrapper">
+                
                 <div class="table-wrapper">
-                    <table class="center">
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th></th>
-                        </tr>
+                    
+                    <table id="contacts" class="center" cellpadding="0" cellspacing="0" border="0">
+                        
+                        <thead>
+                            <tr>
+                                <th >First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                        
                     </table>
+                    
                 </div>
+                
             </div>
-        </div>
 
+            
+            
+        </div>
+            
         <!-- Right Divider -->
         <div class="right-divider">
-			
-			<button type="button" id="logoutButton" class="underlinedButton" onclick="doLogout();">Log Out</button>
+            
+			    <div class="addContactWrapper">
+                    <p id="contactHeader">ADD CONTACT</p>
+                    <input type="text" id="contactTextFirst" name="firstName" placeholder="First Name" required>
+                    <span id="contactFirstNameField" class="elementToToggle">INVALID FIRST NAME</span>
+                    <br>
+                    
+                    <input type="text" id="contactTextLast" name="lastName" placeholder="Last Name" required>
+                    <span id="contactLastNameField" class="elementToToggle">INVALID LAST NAME</span>
+                    <br>
+                    
+                    <input type="text" id="contactTextNumber" name="phoneNumber" placeholder="XXX-XXXX-XXXX" required>
+                    <span id="contactNumberField" class="elementToToggle">INVALID PHONE NUMBER</span>
+                    <br>
 
-			<!-- Contact Form -->
-			<input type="text" id="contactTextFirst" class="contactItem" name="firstName" placeholder="First Name" required>
-			<br>
-			<input type="text" id="contactTextLast" class="contactItem" name="lastName" placeholder="Last Name" required>
-			<br>
-			<input type="text" id="contactTextNumber" class="contactItem" name="phoneNumber" placeholder="XXX-XXXX-XXXX" required>
-			<br>
-			<input type="text" id="contactTextEmail" class="contactItem" name="email" placeholder="name@email.com" required>
-			<br>
-			<button type="button" id="addContactButton" class="buttons" onclick="addContact();">ADD CONTACT</button>
-			<br>
-			<span id="contactAddResult"></span>
+                    <input type="text" id="contactTextEmail" name="email" placeholder="name@email.com" required>
+                    <span id="contactEmailField" class="elementToToggle">INVALID EMAIL</span>
+                    <br>
+
+                    <button type="button" id="addContactButton" onclick="addContact();">ADD</button>
+                    <br>
+                    <span id="contactAddResult"></span>
+                    
+                </div>
 			
         </div>
 

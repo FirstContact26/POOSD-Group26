@@ -1,100 +1,246 @@
 body {
-    background-color: #2b2b2b;
-    background-image: url('../images/contacts-bg.jpg'); /* Adjust the path accordingly */
-    background-size: cover; /* This property ensures that the image covers the entire background */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-position: center; /* Center the image horizontally and vertically */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+    background: #2b2b2b url('../images/contacts-bg.jpg') no-repeat center/cover;
+/* Set background color, image, and properties */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'SpaceMono';
 }
-
 @font-face {
     font-family: 'SpaceMono';
-    src: url('../fonts/SpaceMono-Regular.ttf') format('truetype'); /* Adjust the path accordingly */
+    src: url('../fonts/SpaceMono-Regular.ttf') format('truetype');
+/* Adjust the path accordingly */
     font-weight: normal;
     font-style: normal;
 }
 
-#title {
-    font-size: 40px;
-    width: 100%;
+.login {
+    font-family: 'SpaceMono';
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.login:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+.login:active {
+    opacity: 50%;
+}
+
+#contacts-title {
+    letter-spacing: 12px;
+    text-shadow: 1px 1px 1px black;
+    margin: 0;
+    font-size: 7vh;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
     font-family: 'SpaceMono', Courier, monospace;
     color: #FFFFFF;
-}
-
-#contacts-container {
+    background-color: rgba(44, 14, 70, 0.3);
+    height: 13vh;
     display: flex;
-    height: 1000px;
+    align-items: center;
+    justify-content: center;
 }
 
-.left-divider {
-    padding-top: 10px;
-    padding-left: 300px;
-    margin-right: 200px;
-    float: left;
-    box-sizing: border-box; /* Include padding and border in the total width */
+.elementToToggle {
+    margin-left: 9%;
+    margin-top: -8%;
+    margin-bottom: 5%;
+    width: 50%;
+    height: 0px;
+    color: rgb(64, 39, 206);
+    display: none;
+    font-size: 12px;
+    font-family: 'SpaceMono', Courier, monospace;
+    text-align: left;
 }
 
-.right-divider {
-    margin-top: 150px;
-    height: 375px;
-    float: left;
-    background-color: #ffffff;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 20px;
-    padding: 20px;
+.contacts-container {
+    background-color: rgb(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
 
+.left-divider, .right-divider {
+    flex: 1;
+    min-height: 80%;
+    height: 800px;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#contactHeader {
+    padding-top: 10%;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    font-size: 2.3em;
+    font-family: 'SpaceMono';
+    font-weight: 100;
 }
 
 #mySearchBar {
-    width: 300px;
-    height: 40px;
-    display: block;
-    margin: 0 auto;
+
+    /*
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    margin-top: 1%;*/
+    margin-top: 1%;
+    height: 5%;
+    width: 99%;
+    
+    
     text-align: left;
-    padding-left: 10px;
-    border-radius: 20px;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: #FFFFFF;
     border: none;
     outline: none;
 }
 
-.contactItem {
-    width: 100%;
-    height: 35px;
-    display: block;
-    border: none; /* Remove default border */
-    border-bottom: 1px solid #333; /* Add a bottom border */
-    padding: 1px; /* Adjust padding for space around the text */
-    margin-bottom: 10px; /* Adjust margin to control distance from surrounding elements */
-    color: #333;
+.left-divider {
+    margin-left: 3%;
+    min-width: 70%;
+    align-self: center;
+}
+
+.right-divider {
+    align-self: center;
+}
+
+/* Adding Height to this messes things up*/
+.addContactWrapper {
+    margin: 10%;
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.4);
+    max-width: 350px;
+    text-align: center;
+    height: 600px;
+    /*
+    margin-top: 12%;
+    margin-left: 10%;
+    */
+}
+
+.addContactWrapper input {
+    
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1.5px solid rgb(255, 255, 255);
+    height: 5%;
+    width: 80%;
+    max-width: 90%;
+    margin-top: 1%;
+    background-color: rgb(0, 0, 0, 0);
     outline: none;
+    caret-color: white;
+}
+
+.addContactWrapper input::placeholder {
+    color:white
+}
+
+.addContactWrapper button{
+    width: 90%;
+    font-size: 25px;
+    font-family: SpaceMono;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    transition-duration: 0.3s;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.addContactWrapper button:hover{
+    background-color: rgba(48, 19, 117, 0.4);
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.addContactWrapper button:active{
+    opacity: 30%;
 }
 
 
 #contactTextFirst {
-    text-align: left;
-    border-radius: 0;
+    margin-top: 15%;
+    margin-bottom: 10%;
 }
 
 #contactTextLast {
-    text-align: left;
-    border-radius: 0;
+    margin-bottom: 10%;
 }
 
 #contactTextNumber {
-    text-align: left;
-    border-radius: 0;
+    margin-bottom: 10%;
 }
 
 #contactTextEmail {
-    text-align: left;
-    border-radius: 0;
+    margin-bottom: 10%;
 }
 
-.underlinedButton {
+.editContactText {
+    width: 400px;
+    height: 35px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    padding: 1px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    outline: none;
+}
+
+.editButton, .saveButton, .delContact {
+    border: none;
+    transition: transform 0.2s;
+    background-color: transparent;
+}
+
+.editContactImage, .saveContactImage, .delContactImage {
+    width: 30px;
+    height: 30px;
+}
+
+.editButton:hover, .saveButton:hover, .delContact:hover {
+    transform: scale(1.1);
+}
+
+.editContactsText{
+    color: black;
+    height: 20px;
+    width: 100px;
+    border-width: 0px;
+    background-color: white;
+    text-align: left;
+    outline: none;
+}
+
+.underlinedButton { 
     display: inline-block;
     text-decoration: underline;
     color: #6e6e6e;
@@ -119,41 +265,29 @@ body {
     background: transparent;
 }
 
-#addContactButton {
-    width: 300px;
-    height: 75px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 10px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    background: transparent;
-}
-
-#addContactButton:hover {
-    background-color: rgb(50, 34, 141);
-}
-
 .outer-wrapper {
-    margin: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 20px;
-    background-color: #ffffff;
-    height: 600px;
-    max-width: fit-content;
-    max-height: 800px;
+    /*
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    */
+
+    
+    height: 80%;
+    width: 100%;
+    
 }
 
 .table-wrapper {
     overflow-y: auto;
-    height: fit-content;
-    margin-top: 22px;
-    max-height: 500px;
-    margin: 15px;
-    padding-bottom: 20px;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
 }
 
 .center {
@@ -162,91 +296,82 @@ body {
 }
 
 table {
-    width: 100%;
-    max-height: 100%;
-    border-spacing: 0px;
+    font-family: 'SpaceMono';
+    border-spacing: 0;
+    table-layout: fixed;
+    width:100%;
 }
 
 th {
-    top: 0px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-weight: normal;
-    font-size: 18px;
-    outline: 0.7px solid black;
-    border: 1.5px solid black;
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(48, 19, 117, 0.4);
+    text-transform: uppercase;
 }
 
-table, th, td {
-    border: 1px solid #000;
-    border-collapse: collapse;
+table, td {
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 th, td {
-    width: 100px;
+    min-width: 10%;
     padding: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+}
+
+tr {
+   max-height: 10px;
 }
 
 td {
+    max-height: 50px;
     text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
     font-size: 15px;
-    border: 1px solid rgb(177, 177, 177);
-    padding-left: 20px;
+    color: #ffffff;
+}
+ 
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.buttons {
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'SpaceMono', sans-serif;
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(171, 147, 204, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(41, 14, 59, 0.6);
+    border-radius: 10px;
 }
 
-.buttons:hover {
-    background-color: #00d5124f;
-    color: #FFFFFF;
-    opacity: 50%;
+/*Navigation bar styles*/
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
 }
 
-input[type="text"],
-input[type="password"] {
-    border-radius: 25px;
-    text-align: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    font-family: 'SpaceMono', sans-serif;
+ul.navbar li {
+    float: left;
 }
 
-#loginTitle,
-#loginResult,
-#userName {
+ul.navbar li a {
     display: inline-block;
-    width: 90%;
+    font-size: 1.5em;
+    color: white;
     text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'SpaceMono', sans-serif;
+    padding: 16px 18px;
+    text-decoration: none;
 }
 
-#loginTitle,
-#loginResult {
-    font-size: 0.8em;
-    color: #95060a;
+ul.navbar li a:hover:not(.active) {
+    background-color: rgba(0,0,0,0.35);
 }
 
-#userName {
-    width: 80%;
-    margin-left: 10%;
-}
-
-select {
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 2%;
-    font-size: 0.75em;
-    font-family: 'SpaceMono', sans-serif;
+ul.navbar li a.active {
+    background-color:rgba(0,0,0,0.6);
 }

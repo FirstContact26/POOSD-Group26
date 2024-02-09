@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/login.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+
+<h1 id="title">FIRST CONTACT</h1>
+
+<div id="loginDiv">
+	<span id="loginTitle">LOGIN</span>
+	<div id="register-inputs">
+		<input type="text-field" id="firstName" placeholder="First Name" />
+		<input type="text-field" id="lastName" placeholder="Last Name"/>
+		<input type="text-field" id="regUsername" placeholder="Username" onfocus="showUserRequirements();" onblur="blurUserRequirements();"/>
+		<input type="password" id="regPassword" class="passwordC" placeholder="Password" onfocus="showPassRequirements();" onblur="blurPassRequirements();"/>
+		<input type="password" id="verPassword" class="passwordC" placeholder="Verify Password"/>
+		<span id="registerResult"></span>
+		<div id="usernameRequirements">
+			<h3 class="requirements">Username must contain the following:</h3>
+			<p id="userLen" class="requirements">- 3 to 18 characters</p>
+			<p id="userLetter" class="requirements">- At least one letter</p>
+		</div>
+		<div id="passwordRequirements">
+			<h3 class="requirements">Password must contain the following:</h3>
+			<p id="passLen" class="requirements">- 8 to 32 characters</p>
+			<p id="passLetter" class="requirements">- At least one letter</p>
+			<p id="passNum" class="requirements">- At least one number</p>
+			<p id="passSpec" class="requirements">- At least one special character</p>
+		</div>
+		<button type="button" id="registerButton" class="buttons" onclick="doRegister();">SIGNUP</button>
+		<button type="button" id="signup-login" onclick="swapRegister();">Login here</button>
+	</div>
+	<div id="login-inputs">
+		<input type="text-field" id="loginName" placeholder="Username"/>
+		<input type="password" id="loginPassword" class="passwordC" placeholder="Password"/>
+		<div id="toggleDiv">
+			<input type="checkbox" id="passCheckbox" onclick="togglePassword()">
+			<p class="toggle">Show Password</p>
+		</div>
+		<span id="loginResult"></span>
+		<button type="button" id="loginButton" class="buttons" onclick="doLogin();">LAUNCH</button>
+		<button type="button" id="signup-login" onclick="swapLogin();">Sign up here</button>
+	</div>
+</div>
+
+<script>
+	const usernameField = document.getElementById("regUsername");
+	const usernameReqs = document.getElementById("usernameRequirements");
+	let userLen = document.getElementById("userLen");
+	let userLetter = document.getElementById("userLetter");
+
+	const passwordField = document.getElementById("regPassword");
+	const passwordReqs = document.getElementById("passwordRequirements");
+	let passLen = document.getElementById("passLen");
+	let passLetter = document.getElementById("passLetter");
+	let passNum = document.getElementById("passNum");
+	let passSpec = document.getElementById("passSpec");
+
+	//executes every time a character is typed in the Username Field
+	usernameField.addEventListener("input", () => {
+		var letters = /[a-zA-Z]/g;
+
+		let satisfied = 0;
+
+		//check length
+		if ((usernameField.value.length >= 3 && usernameField.value.length <= 18)) {
+			userLen.style.display = "none";
+			satisfied++;
+		}
+		else {
+			userLen.style.display = "block";
+		}
+
+		//check letters
+		if ((usernameField.value.match(letters))) {
+			userLetter.style.display = "none";
+			satisfied++;
+		}
+		else {
+			userLetter.style.display = "block";
+		}
+
+		if(satisfied == 2) {
+			usernameReqs.style.display = "none";
+			document.getElementById("regUsername").style.borderBottom = "1.5px solid gray";
+		}
+		else
+			usernameReqs.style.display = "block";
+
+	});
+
+	//executes every time a character is typed in the Password Field
+	passwordField.addEventListener("input", () => {
+		var nums = /[0-9]/g;
+		var letters = /[a-zA-Z]/g;
+		var spec = /[!@#$%^&*]/g;
+
+		let satisfied = 0;
+
+		//check length
+		if ((passwordField.value.length >= 8 && usernameField.value.length <= 32)) {
+			passLen.style.display = "none";
+			satisfied++;
+		}
+		else {
+			passLen.style.display = "block";
+		}
+
+		//check letters
+		if ((passwordField.value.match(letters))) {
+			passLetter.style.display = "none";
+			satisfied++;
+		}
+		else {
+			passLetter.style.display = "block";
+		}
+
+		//check letters
+		if ((passwordField.value.match(nums))) {
+			passNum.style.display = "none";
+			satisfied++;
+		}
+		else {
+			passNum.style.display = "block";
+		}
+
+		//check letters
+		if ((passwordField.value.match(spec))) {
+			passSpec.style.display = "none";
+			satisfied++;
+		}
+		else {
+			passSpec.style.display = "block";
+		}
+
+		if(satisfied == 4) {
+			passwordReqs.style.display = "none";
+			document.getElementById("regPassword").style.borderBottom = "1.5px solid gray";
+		}
+		else
+			passwordReqs.style.display = "block";
+
+	});
+</script>
+
+</body>
+</html>
